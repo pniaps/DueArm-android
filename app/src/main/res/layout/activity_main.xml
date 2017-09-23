@@ -9,35 +9,113 @@
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
 
-    <Button
-        android:id="@+id/antebrazoDown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Down"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/antebrazoUp" />
-
-    <Button
-        android:id="@+id/antebrazoUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:text="Up"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:id="@+id/imagen"
+        android:layout_width="344dp"
+        android:layout_height="269dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:adjustViewBounds="false"
-        android:src="@drawable/roboticarm"
+        android:cropToPadding="false"
+        android:src="@drawable/robotic_arm"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <LinearLayout
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageButton
+            android:id="@+id/baseizda"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/base_izda"
+            app:layout_constraintBottom_toBottomOf="@+id/brazosubir"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/brazosubir" />
+
+        <ImageButton
+            android:id="@+id/brazosubir"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/brazo_subir"
+            app:layout_constraintBottom_toBottomOf="@+id/antebrazosubir"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/antebrazosubir" />
+
+        <ImageButton
+            android:id="@+id/antebrazosubir"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/antebrazo_subir"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteY="308dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout2"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp">
+
+        <ImageButton
+            android:id="@+id/basedcha"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/base_dcha"
+            tools:layout_editor_absoluteX="34dp"
+            tools:layout_editor_absoluteY="381dp" />
+
+        <ImageButton
+            android:id="@+id/brazobajar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/brazo_bajar"
+            tools:layout_editor_absoluteX="144dp"
+            tools:layout_editor_absoluteY="399dp" />
+
+        <ImageButton
+            android:id="@+id/antebrazobajar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/antebrazo_bajar"
+            tools:layout_editor_absoluteX="265dp"
+            tools:layout_editor_absoluteY="399dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

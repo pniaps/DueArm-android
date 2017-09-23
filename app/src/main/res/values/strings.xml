@@ -3,7 +3,7 @@
 
     <string name="not_connected">You are not connected to a device</string>
     <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Leaving app.</string>
-    <string name="title_connecting">connecting...</string>
+    <string name="title_connecting">Connecting...</string>
     <string name="title_connected_to">connected to <xliff:g id="device_name">%1$s</xliff:g></string>
     <string name="title_not_connected">not connected</string>
 
@@ -15,5 +15,6 @@
     <string name="title_paired_devices">Paired Devices</string>
     <string name="title_other_devices">Other Available Devices</string>
     <string name="button_scan">Scan for devices</string>
+    <string name="cmd_reset_done">Reset has been done</string>
 
 </resources>

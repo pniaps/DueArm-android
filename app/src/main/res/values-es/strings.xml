@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">DueArm</string>
+    <string name="bt_not_enabled_leaving">Bluetooth no se ha activado. Cerrando app.</string>
+    <string name="button_scan">Buscar dispositivos</string>
+    <string name="none_found">No se han encontrado dispositivos</string>
+    <string name="none_paired">No hay dispositivos emparejados</string>
+    <string name="not_connected">No estás conectado</string>
+    <string name="scanning">Buscando dispositivos ...</string>
+    <string name="select_device">Selecciona un dispositivo para conectar</string>
+    <string name="title_connected_to">Connectado a <xliff:g id="device_name">%1$s</xliff:g></string>
+    <string name="title_connecting">Conectando ...</string>
+    <string name="title_not_connected">Desconectado</string>
+    <string name="title_other_devices">Dispositivos disponibles</string>
+    <string name="title_paired_devices">Dispositivos sincronizados</string>
+    <string name="cmd_reset_done">Se ha realizado reset</string>
+</resources>

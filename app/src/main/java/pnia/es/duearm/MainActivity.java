@@ -7,16 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.ParcelUuid;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
-
-import java.util.Set;
 
 public class MainActivity extends Activity {
 
@@ -27,17 +24,28 @@ public class MainActivity extends Activity {
     private Bluetooth mBT = null;
     private String mConnectedDeviceName = null;
 
-    Button baseUp, baseDown, brazoUp, brazoDown, antebrazoUp, antebrazoDown;
+    ImageButton baseizda, basedcha, brazosubir, brazobajar, antebrazosubir, antebrazobajar;
+    ImageView imagen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        antebrazoUp = (Button) findViewById(R.id.antebrazoUp);
-        new buttonCommand(antebrazoUp, "7");
-        antebrazoDown = (Button) findViewById(R.id.antebrazoDown);
-        new buttonCommand(antebrazoDown, "8");
+        baseizda = (ImageButton) findViewById(R.id.baseizda);
+        new buttonCommand(baseizda, "y", "3", R.drawable.base_izda);
+        basedcha = (ImageButton) findViewById(R.id.basedcha);
+        new buttonCommand(basedcha, "u", "3", R.drawable.base_dcha);
+        brazosubir = (ImageButton) findViewById(R.id.brazosubir);
+        new buttonCommand(brazosubir, "h", "6", R.drawable.brazo_subir);
+        brazobajar = (ImageButton) findViewById(R.id.brazobajar);
+        new buttonCommand(brazobajar, "j", "6", R.drawable.brazo_bajar);
+        antebrazosubir = (ImageButton) findViewById(R.id.antebrazosubir);
+        new buttonCommand(antebrazosubir, "n", "9", R.drawable.antebrazo_subir);
+        antebrazobajar = (ImageButton) findViewById(R.id.antebrazobajar);
+        new buttonCommand(antebrazobajar, "m", "9", R.drawable.antebrazo_bajar);
+
+        imagen = (ImageView) findViewById(R.id.imagen);
 
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {
@@ -185,29 +193,40 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    public void showDevices(MenuItem item) {
+    public void menuShowDevices(MenuItem item) {
         Intent serverIntent = new Intent(this, DeviceListActivity.class);
         startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
     }
 
+    public void menuReset(MenuItem item) {
+        mBT.write("r");
+        Toast.makeText(getApplicationContext(), R.string.cmd_reset_done, Toast.LENGTH_SHORT).show();
+    }
+
     private class buttonCommand implements View.OnTouchListener {
 
-        private String pressCommand;
+        private ImageButton button;
+        private String downCommand, upCommand;
+        int res;
 
-        public buttonCommand(Button button, String pressCommand) {
+        public buttonCommand(ImageButton button, String downCommand, String upCommand, int res) {
+            this.button = button;
             button.setOnTouchListener(this);
-            this.pressCommand = pressCommand;
+            this.downCommand = downCommand;
+            this.upCommand = upCommand;
+            this.res = res;
         }
 
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             switch(event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    sendMessage(pressCommand);
-                    // Start
+                    sendMessage(downCommand);
+                    imagen.setImageResource(res);
                     break;
                 case MotionEvent.ACTION_UP:
-                    // End
+                    imagen.setImageResource(R.drawable.robotic_arm);
+                    sendMessage(upCommand);
                     break;
             }
             return false;

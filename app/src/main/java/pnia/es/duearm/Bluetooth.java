@@ -190,6 +190,13 @@ public class Bluetooth {
         // Perform the write unsynchronized
         r.write(out);
     }
+    public void write(String message) {
+        if (message.length() > 0) {
+            // Get the message bytes and tell the BluetoothChatService to write
+            byte[] send = message.getBytes();
+            write(send);
+        }
+    }
 
     /**
      * Indicate that the connection attempt failed and notify the UI Activity.
